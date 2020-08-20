@@ -1,5 +1,9 @@
 import 'package:demo_trips/description_place.dart';
+import 'package:demo_trips/review_list.dart';
 import 'package:flutter/material.dart';
+
+import 'description_place.dart';
+import 'components/gradient_back.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,54 +18,20 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.purple,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Scaffold(body: new DescriptionPlace()),
-    );
-  }
-}
-
-/* class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+      home: Scaffold(
+        body: Stack(
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            ListView(
+              children: <Widget>[
+                DescriptionPlace('Bahamas', 4.5,
+                    'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting'),
+                ReviewLis(),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            GradientBack(),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
     );
   }
-} */
+}
